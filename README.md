@@ -1,20 +1,46 @@
-# CloudLeaf Notes
+# 🌿 CloudLeaf Notes
+https://mellifluous-horse-caacc1.netlify.app/
 
-Cozy, sectioned note-taking workspace with pages, drawing, sticky notes, image placement, and ambient soundscapes.
+A cozy, sectioned note-taking workspace designed for focus, creativity, and calm.  
+Build pages, sketch ideas, pin thoughts, and relax with ambient soundscapes.
 
-## Features
-- Sections, subsections, and pages with delete confirmations
-- Rich text formatting (bold/italic/underline), color, and sizing
-- Drawing + erase on a smooth canvas
-- Paste or drop images, drag to move, resize via handle, remove with `x`
-- Sticky notes with emoji and per-note colors
-- Section background images (presets or upload)
-- Ambient rain/forest/wind tracks with per-track controls
+---
 
-## Run
-Open `index.html` in a browser.
+## ✨ Features
+- 📁 Sections, subsections, and pages (with delete confirmations)
+- ✍️ Rich text editing — bold, italic, underline, colors, and sizing
+- 🎨 Smooth drawing canvas with erase support
+- 🖼️ Paste or drop images — drag to move, resize via handle, remove with `×`
+- 📝 Sticky notes with emojis and per-note colors
+- 🌄 Section background images (presets or upload your own)
+- 🌧️ Ambient rain, forest, and wind tracks with individual controls
 
-## Notes
-- State is stored in `localStorage` in your browser.
-- Audio playback requires a user click before it can start.
-- Uploaded section images are stored as data URLs in localStorage.
+---
+
+## 🚀 Run Locally
+No setup required.
+
+Open `index.html` in your browser.
+
+---
+
+## 🧠 How It Works
+- All notes and layouts are saved in your browser using `localStorage`
+- Section background images are stored as data URLs
+- Audio playback starts after a user interaction (browser policy)
+
+---
+
+## 🎧 Media
+Audio assets are managed using **Git LFS** to keep the repository lightweight.
+
+---
+
+## 🌱 Philosophy
+CloudLeaf Notes is meant to feel like a calm desk by a window —  
+organized, flexible, and quietly comforting.
+
+---
+
+## 📜 License
+MIT
