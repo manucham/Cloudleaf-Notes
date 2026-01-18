@@ -1,5 +1,5 @@
 # 🌿 CloudLeaf Notes
-https://mellifluous-horse-caacc1.netlify.app/
+[Link](https://mellifluous-horse-caacc1.netlify.app/)
 
 A cozy, sectioned note-taking workspace designed for focus, creativity, and calm.  
 Build pages, sketch ideas, pin thoughts, and relax with ambient soundscapes.
