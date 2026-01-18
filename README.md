@@ -1,4 +1,4 @@
-# Notebook Studio
+# CloudLeaf Notes
 
 Cozy, sectioned note-taking workspace with pages, drawing, sticky notes, image placement, and ambient soundscapes.
 

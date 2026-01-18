@@ -1746,7 +1746,7 @@ function buildStickyNoteElement(note) {
   body.className = "sticky-body";
   body.placeholder = "Sticky note";
   body.value = note.text || "";
-  body.spellcheck = true;
+  body.spellcheck = false;
   body.style.color = note.textColor || "#1f2a33";
 
   wrapper.appendChild(header);
