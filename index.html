@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notebook Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app" id="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div>
+            <h1>Cloudleaf Notes</h1>
+          </div>
+        </div>
+
+        <button class="ghost theme-toggle" id="theme-toggle" aria-pressed="false">
+          <span class="btn-icon" aria-hidden="true">D</span>
+          <span class="theme-text">Dark mode</span>
+        </button>
+
+        <button class="primary" id="add-section"><span class="btn-icon" aria-hidden="true">+</span>New Section</button>
+
+        <div class="section-list" id="section-list"></div>
+      </aside>
+
+      <main class="workspace">
+        <header class="workspace-header">
+          <div class="workspace-top">
+            <button class="ghost mobile-only" id="toggle-nav"><span class="btn-icon" aria-hidden="true">|||</span>Menu</button>
+            <div class="workspace-title">
+              <h2 id="workspace-section">Data Engineering</h2>
+              <div class="workspace-subtitle">
+                <span id="workspace-page">Page</span>
+              </div>
+            </div>
+            <button class="primary" id="add-page"><span class="btn-icon" aria-hidden="true">+</span>New Page</button>
+          </div>
+
+          <div class="controls-row">
+            <label class="field color-field">
+              Section color
+              <input type="color" id="section-color" value="#5f7f74">
+            </label>
+            <label class="field">
+              Section image
+              <select id="section-bg">
+                <option value="">None</option>
+                <option value="__custom__" disabled>Custom</option>
+                <option value="cozy1.jpg">Cozy 1</option>
+                <option value="cozy2.jpg">Cozy 2</option>
+                <option value="cozy3.jpg">Cozy 3</option>
+                <option value="cozy4.jpg">Cozy 4</option>
+                <option value="cozy5.jpg">Cozy 5</option>
+                <option value="cozy6.jpg">Cozy 6</option>
+                <option value="cozy7.jpg">Cozy 7</option>
+                <option value="cozy8.jpg">Cozy 8</option>
+                <option value="cozy9.jpg">Cozy 9</option>
+                <option value="cozy10.jpg">Cozy 10</option>
+              </select>
+            </label>
+            <label class="field file-field">
+              Upload image
+              <input type="file" id="section-bg-upload" accept="image/*">
+            </label>
+            <label class="field color-field">
+              Page background
+              <input type="color" id="page-bg" value="#f6f1ea">
+            </label>
+            <label class="field page-title">
+              Page title
+              <input type="text" id="page-title" placeholder="Untitled page">
+            </label>
+            <div class="soundscape soundscape-inline" id="soundscape">
+              <span class="soundscape-label">Cozy sound</span>
+              <div class="soundscape-grid">
+                <div class="sound-card" data-sound="rain">
+                  <div class="sound-label">
+                    <span class="sound-dot"></span>
+                    <span>Rain</span>
+                  </div>
+                  <div class="sound-row">
+                    <button class="sound-toggle" data-sound-action="toggle" type="button">Play</button>
+                    <input class="sound-volume" type="range" min="0" max="1" step="0.01" value="0.6">
+                  </div>
+                </div>
+                <div class="sound-card" data-sound="forest">
+                  <div class="sound-label">
+                    <span class="sound-dot"></span>
+                    <span>Forest</span>
+                  </div>
+                  <div class="sound-row">
+                    <button class="sound-toggle" data-sound-action="toggle" type="button">Play</button>
+                    <input class="sound-volume" type="range" min="0" max="1" step="0.01" value="0.45">
+                  </div>
+                </div>
+                <div class="sound-card" data-sound="wind">
+                  <div class="sound-label">
+                    <span class="sound-dot"></span>
+                    <span>Wind</span>
+                  </div>
+                  <div class="sound-row">
+                    <button class="sound-toggle" data-sound-action="toggle" type="button">Play</button>
+                    <input class="sound-volume" type="range" min="0" max="1" step="0.01" value="0.4">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <div class="toolbar-group">
+              <button class="ghost" data-command="bold" title="Bold"><span class="btn-icon" aria-hidden="true">B</span>Bold</button>
+              <button class="ghost" data-command="italic" title="Italic"><span class="btn-icon" aria-hidden="true">I</span>Italic</button>
+              <button class="ghost" data-command="underline" title="Underline"><span class="btn-icon" aria-hidden="true">U</span>Underline</button>
+              <button class="ghost" data-command="insertUnorderedList" title="Bullets"><span class="btn-icon" aria-hidden="true">&bull;</span>Bullets</button>
+              <button class="ghost" data-command="insertOrderedList" title="Numbered"><span class="btn-icon" aria-hidden="true">1.</span>Numbered</button>
+            </div>
+            <div class="toolbar-group">
+              <label class="inline-field">
+                Size
+                <select id="font-size">
+                  <option value="12">12</option>
+                  <option value="14">14</option>
+                  <option value="16" selected>16</option>
+                  <option value="18">18</option>
+                  <option value="22">22</option>
+                  <option value="28">28</option>
+                  <option value="36">36</option>
+                </select>
+              </label>
+            </div>
+            <div class="toolbar-group">
+              <label class="inline-field color-field-inline">
+                Text
+                <input type="color" id="text-color" value="#1b2a2b">
+              </label>
+              <label class="inline-field color-field-inline">
+                Highlight
+                <input type="color" id="highlight-color" value="#f2d896">
+              </label>
+            </div>
+            <div class="toolbar-group">
+              <button class="ghost" id="emoji-button"><span class="btn-icon" aria-hidden="true">:)</span>Emoji</button>
+              <button class="ghost" id="add-sticky"><span class="btn-icon" aria-hidden="true">+</span>Sticky</button>
+            </div>
+            <div class="toolbar-group">
+              <button class="ghost mode active" data-mode="write"><span class="btn-icon" aria-hidden="true">W</span>Write</button>
+              <button class="ghost mode" data-mode="draw"><span class="btn-icon" aria-hidden="true">D</span>Draw</button>
+              <button class="ghost mode" data-mode="erase"><span class="btn-icon" aria-hidden="true">E</span>Erase</button>
+            </div>
+            <div class="toolbar-group">
+              <label class="inline-field color-field-inline">
+                Pen
+                <input type="color" id="pen-color" value="#4a6f78">
+              </label>
+              <label class="inline-field">
+                Size
+                <input type="range" id="pen-size" min="2" max="24" value="6">
+              </label>
+            </div>
+            <div class="toolbar-group">
+              <button class="ghost" id="clear-ink"><span class="btn-icon" aria-hidden="true">C</span>Clear ink</button>
+            </div>
+          </div>
+
+        </header>
+
+        <section class="page-shell">
+          <div class="page-wrap">
+            <div class="page" id="page" contenteditable="true" spellcheck="true"></div>
+            <canvas id="ink"></canvas>
+          </div>
+        </section>
+        <div class="emoji-picker" id="emoji-picker" hidden></div>
+        <div class="soundscape-audio" aria-hidden="true">
+          <audio id="audio-rain" src="mp3/rain.mp3" loop preload="metadata"></audio>
+          <audio id="audio-forest" src="mp3/forest.mp3" loop preload="metadata"></audio>
+          <audio id="audio-wind" src="mp3/wind.mp3" loop preload="metadata"></audio>
+        </div>
+      </main>
+    </div>
+
+    <dialog id="entry-dialog">
+      <form method="dialog" id="entry-form">
+        <h3 id="entry-title">New section</h3>
+        <label class="field">
+          Name
+          <input type="text" id="entry-name">
+        </label>
+        <label class="field color-field" id="entry-color-field">
+          Color
+          <input type="color" id="entry-color" value="#5f7f74">
+        </label>
+        <label class="field color-field" id="entry-bg-field">
+          Page background
+          <input type="color" id="entry-bg" value="#f6f1ea">
+        </label>
+        <menu>
+          <button class="ghost" type="button" id="entry-cancel">Cancel</button>
+          <button class="primary" id="entry-submit" type="submit">Create</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <dialog id="confirm-dialog" class="confirm-dialog">
+      <form method="dialog" id="confirm-form">
+        <h3 id="confirm-title">Delete item</h3>
+        <p id="confirm-message">This action cannot be undone.</p>
+        <menu>
+          <button class="ghost" type="button" id="confirm-cancel">Cancel</button>
+          <button class="primary" type="button" id="confirm-confirm">Delete</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
